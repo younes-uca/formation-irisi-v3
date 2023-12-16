@@ -1,7 +1,8 @@
-package com.example.demo.service;
+package com.example.demo;
 
 
 import com.example.demo.bean.Commande;
+import com.example.demo.service.CommandeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,7 @@ class CommandeTest {
 
     private Commande getInput() {
         Commande input = new Commande();
+        input.setId(String.valueOf(System.currentTimeMillis()));
         input.setReference("c1");
         input.setTotal(100);
         input.setTotalPaye(10);
