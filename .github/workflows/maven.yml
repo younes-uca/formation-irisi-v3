@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-docker@v2
 
       - name: Build Docker image
-        run: docker build -t zouani/commande-demo:v1 .
+        run: docker build -t zouani/commande-demo-irisi:v1 .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
