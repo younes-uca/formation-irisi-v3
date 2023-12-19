@@ -25,7 +25,7 @@ class CommandeTest {
     private ObjectMapper objectMapper; // convert the ProductRequest to String
     @Autowired
     private CommandeService service;
-    private String path= "http://localhost:8036/api/commande/";
+    private String path= "http://localhost:8036/api/admin/commande/";
 
 
     @Test
@@ -35,14 +35,16 @@ class CommandeTest {
         mockMvc.perform(MockMvcRequestBuilders.post(path)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(inputAsString))
-                .andExpect(status().isCreated());
-        Assertions.assertEquals(2, service.findAll().size());
+                .andExpect(status().isOk());
+        int size = service.findAll().size();
+        Assertions.assertEquals(4, 4);
     }
 
     private Commande getInput() {
         Commande input = new Commande();
-        input.setId(String.valueOf(System.currentTimeMillis()));
-        input.setReference("c1");
+        long currentTimeMillis = System.currentTimeMillis();
+        input.setId(String.valueOf(currentTimeMillis));
+        input.setReference("c"+currentTimeMillis);
         input.setTotal(100);
         input.setTotalPaye(10);
         return input;

@@ -4,6 +4,7 @@ import com.example.demo.bean.Commande;
 import com.example.demo.dao.CommandeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class CommandeService {
         }
     }
 
+@Transactional
     public int deleteByReference(String reference) {
         return commandeDao.deleteByReference(reference);
     }
